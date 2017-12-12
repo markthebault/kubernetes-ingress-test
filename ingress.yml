@@ -1,0 +1,37 @@
+# SIMPLE VERSION TO ROOT EVERTING :)
+# apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#   name: nginx-ingress
+# spec:
+#   backend:
+#     serviceName: nginx
+#     servicePort: 80
+
+
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-test
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: tutum.info
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: tutum
+          servicePort: 80
+  - host: nginx.all
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: 80
