@@ -27,4 +27,5 @@ You can now try on your navigator the different urls
 Delete the create resources in you host
 ```
 $ make clean
+$ kubectl delete -f .
 ```
